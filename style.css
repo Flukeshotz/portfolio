@@ -340,3 +340,13 @@ em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
 .tl-doc svg{flex-shrink:0;color:var(--mint)}
 .tl-doc .tl-doc-arrow{color:var(--muted);transition:transform .25s}
 .tl-doc:hover .tl-doc-arrow{transform:translate(2px,-2px);color:var(--mint)}
+
+/* ===== LESSONS ("What I've learned") ===== */
+.lessons-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2vw,24px)}
+.lesson{position:relative;background:var(--ink-2);border:1px solid var(--line);border-radius:22px;padding:clamp(26px,3vw,40px);overflow:hidden;transition:transform .4s cubic-bezier(.22,1,.36,1),border-color .4s}
+.lesson:hover{transform:translateY(-4px);border-color:rgba(45,212,191,.4)}
+.lesson-n{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:var(--ink);background:var(--grad);background-size:160%;width:38px;height:38px;border-radius:50%;display:grid;place-items:center}
+.lesson h3{font-size:clamp(19px,2.3vw,25px);font-weight:600;line-height:1.25;margin:18px 0 12px;letter-spacing:-.01em}
+.lesson p{color:#C9C5E8;font-size:clamp(14.5px,1.5vw,16px);line-height:1.65;max-width:540px}
+.lesson-src{display:inline-block;margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--mint)}
+@media(max-width:760px){.lessons-grid{grid-template-columns:1fr}}

@@ -3,9 +3,12 @@
    ============================================================ */
 
 // ====== CONFIG ======
-// After deploying the backend to Railway, paste its URL here.
-// e.g. "https://harsh-portfolio-production.up.railway.app"
-const BACKEND_URL = ""; // leave empty to use built-in fallback answers
+// Set this ONLY if the backend is on a DIFFERENT origin than this page
+// (e.g. frontend on Vercel, backend on Railway): paste the Railway URL.
+// Leave "" when the FastAPI backend serves this page itself (same Railway
+// service) — the chat calls "/chat" directly. If no backend responds, the
+// built-in fallbackAnswer() is used automatically.
+const BACKEND_URL = "";
 
 // ====== CUSTOM CURSOR ======
 (function () {
@@ -158,17 +161,20 @@ async function sendQuestion(question) {
 
   try {
     let answer;
-    if (BACKEND_URL) {
-      const res = await fetch(`${BACKEND_URL}/chat`, {
+    const endpoint = (BACKEND_URL ? BACKEND_URL.replace(/\/+$/, '') : '') + '/chat';
+    try {
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: question, history })
       });
+      if (!res.ok) throw new Error('status ' + res.status);
       const data = await res.json();
-      answer = data.reply || "Sorry, I couldn't generate a response.";
-    } else {
+      answer = data.reply || fallbackAnswer(question);
+    } catch (_) {
+      // no backend reachable (opened as a file, or static-only host) → use fallback
       answer = fallbackAnswer(question);
-      await new Promise(r => setTimeout(r, 700));
+      await new Promise(r => setTimeout(r, 500));
     }
     typing.remove();
     const botMsg = addMessage('', 'bot');

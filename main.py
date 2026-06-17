@@ -15,6 +15,7 @@ Setup:
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from groq import Groq
 
@@ -28,7 +29,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+# Build the Groq client lazily so a missing/misnamed key never crashes the
+# whole service on startup — the static site (and fallback answers) keep working.
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
 # ===========================================================================
 # THE BIBLE — everything the bot knows. It knows NOTHING outside this.
@@ -160,8 +164,8 @@ class ChatRequest(BaseModel):
     history: list = []
 
 
-@app.get("/")
-def root():
+@app.get("/healthz")
+def health():
     return {"status": "ok", "service": "Ask Harsh — recruiter chatbot"}
 
 
@@ -179,6 +183,10 @@ def chat(req: ChatRequest):
             messages.append({"role": role, "content": content})
     messages.append({"role": "user", "content": msg})
 
+    if client is None:
+        return {"reply": "My live AI isn't configured yet (no API key on the server) — "
+                         "but reach Harsh directly at harshvsingh.work@gmail.com."}
+
     try:
         completion = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
@@ -190,3 +198,11 @@ def chat(req: ChatRequest):
     except Exception as e:
         return {"reply": "My AI is having a moment — reach Harsh directly at "
                          f"harshvsingh.work@gmail.com. ({type(e).__name__})"}
+
+
+# ===========================================================================
+# Serve the static frontend from this same service (one Railway URL for both).
+# Mounted LAST so the /chat and /healthz API routes above take priority.
+# `html=True` serves index.html at "/".
+# ===========================================================================
+app.mount("/", StaticFiles(directory=".", html=True), name="frontend")

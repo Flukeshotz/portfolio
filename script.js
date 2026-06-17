@@ -276,8 +276,8 @@ function fallbackAnswer(q) {
     return "Product: PRDs, user research, KPI trees, prioritisation. AI: LLM integration, RAG, prompt engineering, human-in-the-loop design, agentic pipelines. Data: SQL, Python, Power BI, EDA. He builds with FastAPI, Qdrant, n8n, Groq, React. He's product-led and AI-assisted — strongest on product and architecture decisions.";
   if (s.includes('next leap') || s.includes('voice') || s.includes('research'))
     return "At the Next Leap PM Fellowship, Harsh ran 30+ surveys and 5 interviews on why Indians don't use ChatGPT voice. Key finding: 65–70% cited losing control of their input — not accuracy — as the blocker. He reframed it from a tech problem to an interaction-design problem and built a roadmap targeting 2% → 6% adoption.";
-  if (s.includes('weakness') || s.includes('gap'))
-    return "Honestly: limited full-time experience (6 months at HighRadius plus projects), and he's still building his network and interview reps. He's product-led and AI-assisted rather than a from-scratch software engineer. The upside — he learns fast, ships independently, and works right at the product + AI intersection.";
+  if (s.includes('weakness') || s.includes('gap') || s.includes('shortcoming') || s.includes('red flag') || s.includes('why not') || s.includes('downside') || s.includes('concern'))
+    return "Fair question — the honest bit is that his full-time experience is still early (6 months at HighRadius plus self-built projects), and he's product-led and AI-assisted rather than a from-scratch engineer. But that's exactly where the story gets good: he independently ships live products (PULSE, SIF Copilot, Gourmet AI), finds and frames real problems without being asked, and backs it with real outcomes — 27 discovery calls, MCR +15%, 8,000+ reviews/week. He learns fast and lives right at the product + AI intersection.";
   return "I can tell you about Harsh's live products (PULSE, SIF Copilot, Gourmet AI), his HighRadius impact, his Next Leap research, his skills, or how he thinks about product. What would you like to know? Or reach him directly at harshvsingh.work@gmail.com.";
 }
 

@@ -17,6 +17,11 @@ The chatbot is **context-locked**. Its entire knowledge lives in the `SYSTEM_PRO
 
 When editing the bot's knowledge, edit `SYSTEM_PROMPT` only. Keep the ABSOLUTE RULES section intact.
 
+## Bot guardrails (added — don't weaken)
+- `SYSTEM_PROMPT` rules 7–9 cover anti-injection, never-say-unverified-negatives, and gentle-acknowledge-then-pivot for weakness/gap questions. The "HANDLING WEAKNESS / GAP" section holds the approved wording.
+- `INJECTION_RE` in `backend/main.py` is a narrow regex guard that returns a canned redirect for blatant prompt-extraction/jailbreak attempts before they hit the model. Keep it narrow — it must NOT block legit questions like "does Harsh know prompt engineering?".
+- `backend/evals.py` is an adversarial test harness: `python evals.py <backend-url>` fires injection/off-topic/negative/normal prompts and flags bad replies. Run it after editing the prompt. Prompt-based guardrails reduce but never fully eliminate jailbreaks on an open model — re-run evals after changes.
+
 ## The end user
 A **recruiter or hiring manager**. Everything should help them evaluate Harsh fast. The chatbot is the centrepiece feature.
 

@@ -370,3 +370,12 @@ em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
   .cursor-dot,.cursor-ring{display:none!important}
   body{cursor:auto}
 }
+
+/* ===== SCROLL PERFORMANCE (touch devices) ===== */
+@media (pointer:coarse){
+  /* full-viewport blend-mode layer forces a repaint every scroll frame */
+  .grain{display:none}
+  /* a live backdrop blur re-blurs the page behind the nav each frame;
+     a near-opaque background is far cheaper and looks almost identical */
+  .nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(11,10,31,.94)}
+}

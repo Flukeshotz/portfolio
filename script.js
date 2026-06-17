@@ -36,11 +36,8 @@ const BACKEND_URL = "";
   });
 })();
 
-// ====== NAV SCROLL STATE ======
+// ====== NAV REF (scroll handling unified below) ======
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-});
 
 // ====== REVEAL ON SCROLL ======
 const io = new IntersectionObserver((entries) => {
@@ -106,14 +103,36 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
   card.addEventListener('mouseleave', () => card.style.transform = '');
 });
 
-// ====== PARALLAX BLOBS ======
+// ====== UNIFIED SCROLL HANDLER (rAF-throttled, passive) ======
+// One handler does the nav state + hero parallax, batched into a single
+// frame so scrolling stays smooth. Parallax moves blurred layers, which is
+// expensive — so we skip it on touch devices and when motion is reduced.
 const blobs = document.querySelectorAll('.hero-blob');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const coarsePointer = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+const doParallax = !reduceMotion && !coarsePointer && blobs.length > 0;
+
+let lastScrollY = window.scrollY;
+let scrollTicking = false;
+
+function onScrollFrame() {
+  nav.classList.toggle('scrolled', lastScrollY > 40);
+  if (doParallax) {
+    for (let i = 0; i < blobs.length; i++) {
+      blobs[i].style.transform = `translate3d(0, ${lastScrollY * (0.06 + i * 0.03)}px, 0)`;
+    }
+  }
+  scrollTicking = false;
+}
+
 window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  blobs.forEach((b, i) => {
-    b.style.transform = `translateY(${y * (0.08 + i * 0.04)}px)`;
-  });
+  lastScrollY = window.scrollY;
+  if (!scrollTicking) {
+    scrollTicking = true;
+    requestAnimationFrame(onScrollFrame);
+  }
 }, { passive: true });
+onScrollFrame(); // set initial state
 
 /* ============================================================
    CHATBOT

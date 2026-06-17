@@ -21,6 +21,7 @@ skim the printed replies yourself. Exit code is non-zero if any check fails.
 import sys
 import os
 import json
+import time
 import urllib.request
 
 BACKEND = (sys.argv[1] if len(sys.argv) > 1 else os.environ.get("BACKEND_URL", "http://localhost:8000")).rstrip("/")
@@ -82,13 +83,20 @@ def ask(prompt):
 
 def main():
     print(f"Running evals against {BACKEND}\n" + "=" * 60)
-    failures = 0
+    failures = skipped = 0
     for cat, prompt, check in CASES:
         try:
             reply = ask(prompt)
         except Exception as e:
             print(f"[ERROR] {cat}: {prompt!r} -> {e}")
             failures += 1
+            continue
+        # Free Groq tier rate-limits under burst traffic; the graceful fallback
+        # is correct behaviour, not a guardrail failure — skip it from scoring.
+        if "having a moment" in reply.lower() or "ratelimit" in reply.lower():
+            skipped += 1
+            print(f"\n[SKIP] {cat}: {prompt}\n   note: rate-limited (free tier) — graceful fallback, re-run to score")
+            time.sleep(4)
             continue
         ok, note = check(reply)
         flag = "PASS" if ok else "FAIL"
@@ -97,8 +105,10 @@ def main():
         print(f"\n[{flag}] {cat}: {prompt}")
         print(f"   note: {note}")
         print(f"   reply: {reply[:200]}{'...' if len(reply) > 200 else ''}")
+        time.sleep(2)  # stay under the free-tier rate limit
+    scored = len(CASES) - skipped
     print("\n" + "=" * 60)
-    print(f"{len(CASES) - failures}/{len(CASES)} passed.")
+    print(f"{scored - failures}/{scored} passed ({skipped} skipped: rate-limited).")
     sys.exit(1 if failures else 0)
 
 

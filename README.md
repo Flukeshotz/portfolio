@@ -10,7 +10,7 @@ portfolio/
 │   ├── style.css
 │   ├── script.js
 │   └── vercel.json
-└── backend/           → deploy to Railway (powers the chatbot)
+└── backend/           → FastAPI app (powers the chatbot; also serves the site)
     ├── main.py
     ├── requirements.txt
     ├── Procfile
@@ -25,9 +25,11 @@ portfolio/
 Open `frontend/index.html` in a browser. It works right away using built-in fallback answers — no backend required to show it off.
 
 ## Deploy (all free)
-1. **Backend → Railway:** push `backend/` to GitHub → deploy → set `GROQ_API_KEY` (free at console.groq.com). Copy the Railway URL.
-2. **Connect:** set `BACKEND_URL` at the top of `frontend/script.js` to that URL.
-3. **Frontend → Vercel:** push `frontend/` to GitHub → import → root dir `frontend` → deploy.
+Live at **https://portfolio-tau-ashen-94.vercel.app** — a single Vercel deployment serves both the static site and the `/chat` API.
+
+1. Push to `main` → Vercel auto-deploys.
+2. Set `GROQ_API_KEY` in the Vercel project's environment variables (free at console.groq.com). Never commit it — this repo is public.
+3. Leave `BACKEND_URL` in `script.js` empty; the chat posts to same-origin `/chat` and falls back to built-in answers if that's unavailable.
 
 Full details in `CLAUDE.md`.
 

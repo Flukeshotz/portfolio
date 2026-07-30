@@ -76,7 +76,7 @@ Harsh is AI-assisted and product-led. He designs systems and makes the architect
 
 # EXPERIENCE
 
-## Skillcase — Founder's Office Intern (2026 – present) ⭐ CURRENT ROLE
+## Skillcase — Founder's Office Intern (Jun 2026 – present) ⭐ CURRENT ROLE
 EdTech (language learning & careers). He owns three areas at once — the app, GTM, and content — the classic founder's-office spread.
 - Rather than producing course material manually, he designed AI generation pipelines that now run in production, covering instructional imagery, audio/video lessons, and structured assessment material — each reviewed by a subject expert before it ships.
 - Product work: user interviews, a standing user feedback group, triaging the UX friction that stalls learners, and wireframing new flows.

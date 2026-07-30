@@ -49,7 +49,7 @@ In `frontend/script.js`, set `BACKEND_URL` to the deployed Railway URL (no trail
 - Name: Harsh Vardhan Singh · Email: harshvsingh.work@gmail.com
 - LinkedIn: linkedin.com/in/harshv5111 · GitHub: github.com/Flukeshotz
 - B.Tech CSE (AI/ML), SRM IST Kattankulathur, graduated May 2026, CGPA 8.53/10
-- **Current role: Founder's Office Intern at Skillcase (2026–present)** — EdTech (language learning & careers). Owns app, GTM, content. Public-safe description only, stated QUALITATIVELY: designed AI generation pipelines running in production (instructional imagery, audio/video lessons, structured assessment material, each expert-reviewed), user interviews, UX-friction triage, wireframes, content/social growth. **Per Harsh's explicit instruction: publish NO numbers, volumes, metrics, growth figures or user counts for Skillcase, and no internal specifics (bugs, unreleased features, colleague names).**
+- **Current role: Founder's Office Intern at Skillcase (started 25 Jun 2026 – present)** — EdTech (language learning & careers). Owns app, GTM, content. Public-safe description only, stated QUALITATIVELY: designed AI generation pipelines running in production (instructional imagery, audio/video lessons, structured assessment material, each expert-reviewed), user interviews, UX-friction triage, wireframes, content/social growth. **Per Harsh's explicit instruction: publish NO numbers, volumes, metrics, growth figures or user counts for Skillcase, and no internal specifics (bugs, unreleased features, colleague names).**
 - HighRadius intern Sep 2025–Jan 2026; Next Leap PM Fellow Apr 2026–present; CMPDI Dec 2023
 - Key metrics: 27 net-new discovery calls, MCR +15% above floor, 800+ reviews/week (PULSE), 50–70% effort cuts
 

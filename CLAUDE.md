@@ -6,7 +6,7 @@ This file orients Claude Code on this project. Read it first.
 A recruiter-facing personal portfolio for **Harsh Vardhan Singh** (recent B.Tech CSE/AI-ML grad, aspiring AI Product Manager). It has two parts:
 
 - `frontend/` — static site (HTML/CSS/JS). Deploys to **Vercel**. Bold, animated, "Electric Dusk" theme.
-- `backend/` — FastAPI service powering the **"Ask Harsh"** AI chatbot. Deploys to **Railway**. Uses **Groq** (free tier).
+- `backend/` — FastAPI service powering the **"Ask Harsh"** AI chatbot. Now deployed on **Vercel alongside the site** (it also serves the static files). Uses **Groq** (free tier).
 
 ## The chatbot's defining behaviour (do not weaken this)
 The chatbot is **context-locked**. Its entire knowledge lives in the `SYSTEM_PROMPT` string in `backend/main.py`. It must:
@@ -38,12 +38,10 @@ A **recruiter or hiring manager**. Everything should help them evaluate Harsh fa
   Test: `curl -X POST localhost:8000/chat -H "Content-Type: application/json" -d '{"message":"why hire him?"}'`
 
 ## Wiring frontend ↔ backend
-In `frontend/script.js`, set `BACKEND_URL` to the deployed Railway URL (no trailing slash). Empty string = use fallback answers.
+`BACKEND_URL` in `script.js` is `""` — the chat posts to same-origin `/chat`, which works because the FastAPI app serves the site itself. Only set `BACKEND_URL` if the backend ever moves to a different origin. Any failure falls back to `fallbackAnswer()` automatically.
 
 ## Deploy
-- Backend → Railway: push `backend/` to GitHub, deploy, set env var `GROQ_API_KEY`. Copy the URL.
-- Frontend → Vercel: push `frontend/` to GitHub, set root dir to `frontend`, framework "Other", deploy.
-- Then paste the Railway URL into `BACKEND_URL` and redeploy the frontend.
+Push to `main` on **Flukeshotz/portfolio** → Vercel auto-deploys. `GROQ_API_KEY` is set in the Vercel project's environment variables (never in code — the repo is public).
 
 ## Verified facts (source of truth — never contradict)
 - Name: Harsh Vardhan Singh · Email: harshvsingh.work@gmail.com
@@ -51,12 +49,12 @@ In `frontend/script.js`, set `BACKEND_URL` to the deployed Railway URL (no trail
 - B.Tech CSE (AI/ML), SRM IST Kattankulathur, graduated May 2026, CGPA 8.53/10
 - **Current role: Founder's Office Intern at Skillcase (started 25 Jun 2026 – present)** — EdTech (language learning & careers). Owns app, GTM, content. Public-safe description only, stated QUALITATIVELY: designed AI generation pipelines running in production (instructional imagery, audio/video lessons, structured assessment material, each expert-reviewed), user interviews, UX-friction triage, wireframes, content/social growth. **Per Harsh's explicit instruction: publish NO numbers, volumes, metrics, growth figures or user counts for Skillcase, and no internal specifics (bugs, unreleased features, colleague names).**
 - HighRadius intern Sep 2025–Jan 2026; Next Leap PM Fellow Apr 2026–present; CMPDI Dec 2023
-- Key metrics: 27 net-new discovery calls, MCR +15% above floor, 800+ reviews/week (PULSE), 50–70% effort cuts
+- Key metrics: 27 net-new discovery calls, MCR +15% above floor, 8,000+ reviews/week (PULSE), 50–70% effort cuts
 
 ### Project links (all verified, all public)
 | Project | Live | Code |
 |---|---|---|
-| PULSE | https://pulse-production-b034.up.railway.app/ | https://github.com/Flukeshotz/PULSE |
+| PULSE | ⚠️ hosted dashboard DOWN (was Railway) — link the repo until redeployed | https://github.com/Flukeshotz/PULSE |
 | SIF Copilot | https://sif-rag.vercel.app/ | https://github.com/Flukeshotz/SIF_RAG |
 | Gourmet AI | https://gourmet-ai-six.vercel.app/ | https://github.com/Flukeshotz/Gourmet-AI |
 | Athena | — (internal) | https://github.com/Flukeshotz/Athena |

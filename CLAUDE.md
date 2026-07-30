@@ -18,7 +18,8 @@ The chatbot is **context-locked**. Its entire knowledge lives in the `SYSTEM_PRO
 When editing the bot's knowledge, edit `SYSTEM_PROMPT` only. Keep the ABSOLUTE RULES section intact.
 
 ## Bot guardrails (added — don't weaken)
-- `SYSTEM_PROMPT` rules 7–9 cover anti-injection, never-say-unverified-negatives, and gentle-acknowledge-then-pivot for weakness/gap questions. The "HANDLING WEAKNESS / GAP" section holds the approved wording.
+- `SYSTEM_PROMPT` rules 7–10 cover anti-injection, never-say-unverified-negatives, **confidentiality about employers**, and gentle-acknowledge-then-pivot for weakness/gap questions. The "HANDLING WEAKNESS / GAP" section holds the approved wording.
+- **Rule 9 (CONFIDENTIALITY) is load-bearing — never weaken it.** The bot must never discuss an employer's specific bugs/defects, unreleased roadmap/pricing, internal analytics or absolute user counts, or names of colleagues/managers/reviewers/students. When adding new work experience, only add what is safe to say publicly: describe *Harsh's contributions and skills*, never the employer's internal information. `evals.py` has CONFID cases that test this.
 - `INJECTION_RE` in `backend/main.py` is a narrow regex guard that returns a canned redirect for blatant prompt-extraction/jailbreak attempts before they hit the model. Keep it narrow — it must NOT block legit questions like "does Harsh know prompt engineering?".
 - `backend/evals.py` is an adversarial test harness: `python evals.py <backend-url>` fires injection/off-topic/negative/normal prompts and flags bad replies. Run it after editing the prompt. Prompt-based guardrails reduce but never fully eliminate jailbreaks on an open model — re-run evals after changes.
 
@@ -48,6 +49,7 @@ In `frontend/script.js`, set `BACKEND_URL` to the deployed Railway URL (no trail
 - Name: Harsh Vardhan Singh · Email: harshvsingh.work@gmail.com
 - LinkedIn: linkedin.com/in/harshv5111 · GitHub: github.com/Flukeshotz
 - B.Tech CSE (AI/ML), SRM IST Kattankulathur, graduated May 2026, CGPA 8.53/10
+- **Current role: Founder's Office Intern at Skillcase (2026–present)** — EdTech (language learning & careers). Owns app, GTM, content. Public-safe description only, stated QUALITATIVELY: designed AI generation pipelines running in production (instructional imagery, audio/video lessons, structured assessment material, each expert-reviewed), user interviews, UX-friction triage, wireframes, content/social growth. **Per Harsh's explicit instruction: publish NO numbers, volumes, metrics, growth figures or user counts for Skillcase, and no internal specifics (bugs, unreleased features, colleague names).**
 - HighRadius intern Sep 2025–Jan 2026; Next Leap PM Fellow Apr 2026–present; CMPDI Dec 2023
 - Key metrics: 27 net-new discovery calls, MCR +15% above floor, 800+ reviews/week (PULSE), 50–70% effort cuts
 

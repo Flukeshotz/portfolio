@@ -243,7 +243,7 @@ function fallbackAnswer(q) {
   const s = q.toLowerCase();
 
   // crude off-topic guard for the fallback (the real AI does this far better)
-  const onTopic = /harsh|he|him|his|you|your|project|pulse|sif|gourmet|athena|pawpal|dog|case ?study|nexus|aqua|resume|preauth|pre-auth|gdp|highradius|next ?leap|cmpdi|hire|fit|skill|tech|code|coding|experience|intern|education|degree|college|contact|email|reach|linkedin|github|role|pm|product|available|availability|strength|weakness|build|ship|work|story|background|cgpa|srm/i;
+  const onTopic = /harsh|he|him|his|you|your|project|pulse|sif|gourmet|athena|pawpal|dog|case ?study|nexus|aqua|resume|preauth|pre-auth|gdp|highradius|skillcase|founder|next ?leap|cmpdi|hire|fit|skill|tech|code|coding|experience|intern|education|degree|college|contact|email|reach|linkedin|github|role|pm|product|available|availability|strength|weakness|build|ship|work|story|background|cgpa|srm|current|now|doing/i;
   if (!onTopic.test(s)) {
     return "I'm only here to talk about Harsh Vardhan Singh — his work, projects, experience, and how he thinks about product. Ask me anything about that!";
   }
@@ -267,11 +267,13 @@ function fallbackAnswer(q) {
   if (s.includes('code') || s.includes('technical') || s.includes('coding'))
     return "Harsh is product-led and AI-assisted. He owns the problem framing, system design, and the real decisions — why RAG over fine-tuning, why fuzzy-matching for quote validation, why a $0 architecture, why human-in-the-loop. He uses AI tooling to implement and ship fast. That's how live products like PULSE get built. His strength is product judgment and shipping, not writing code from scratch.";
   if (s.includes('education') || s.includes('study') || s.includes('college') || s.includes('degree') || s.includes('cgpa') || s.includes('srm'))
-    return "B.Tech in Computer Science Engineering (AI/ML specialisation) from SRM Institute of Science & Technology, Kattankulathur — graduated May 2026, CGPA 8.53/10. Currently a Next Leap PM Fellow.";
+    return "B.Tech in Computer Science Engineering (AI/ML specialisation) from SRM Institute of Science & Technology, Kattankulathur — graduated May 2026, CGPA 8.53/10. He's currently a Founder's Office Intern at Skillcase, and a Next Leap PM Fellow.";
   if (s.includes('contact') || s.includes('email') || s.includes('reach') || s.includes('linkedin') || s.includes('github'))
     return "Reach Harsh at harshvsingh.work@gmail.com, LinkedIn (linkedin.com/in/harshv5111), or GitHub (github.com/Flukeshotz). He's open to PM, AI PM, and Product Analyst roles across India and remote — happy to discuss timelines directly.";
+  if (s.includes('skillcase') || s.includes('founder') || s.includes('current') || s.includes('doing now'))
+    return "Right now Harsh is a Founder's Office Intern at Skillcase (EdTech — language learning & careers), where he owns the app, GTM, and content. The standout: instead of producing course material by hand, he designed AI generation pipelines that run in production — covering instructional imagery, audio/video lessons, and structured assessment material, each expert-reviewed before shipping. He also runs user interviews, triages UX friction, wireframes new flows, and drives content and social growth. (Internal specifics I can't get into — ask him directly.)";
   if (s.includes('role') || s.includes('looking') || s.includes('available') || s.includes('start'))
-    return "Harsh is looking for Product Manager, AI PM, or Product Analyst roles — based in Chennai, open to relocation (Bengaluru, Gurgaon, PAN India) and remote. He's open to opportunities and happy to discuss timelines directly at harshvsingh.work@gmail.com.";
+    return "Harsh is currently in the Founder's Office at Skillcase, and he's open to Product Manager, AI PM, or Product Analyst opportunities — open to relocation (Bengaluru, Chennai, Gurgaon, PAN India) and remote. Best to reach him directly at harshvsingh.work@gmail.com to discuss timelines.";
   if (s.includes('skill') || s.includes('tech') || s.includes('stack'))
     return "Product: PRDs, user research, KPI trees, prioritisation. AI: LLM integration, RAG, prompt engineering, human-in-the-loop design, agentic pipelines. Data: SQL, Python, Power BI, EDA. He builds with FastAPI, Qdrant, n8n, Groq, React. He's product-led and AI-assisted — strongest on product and architecture decisions.";
   if (s.includes('next leap') || s.includes('voice') || s.includes('research'))

@@ -66,9 +66,14 @@ In `frontend/script.js`, set `BACKEND_URL` to the deployed Railway URL (no trail
 | Nexus AI | NOT fully built — describe as in-progress | https://github.com/Flukeshotz/nexus-ai |
 | GDP Tracker | — | https://github.com/Flukeshotz/Country-wise-GDP-Target-Tracker |
 
-## ⚠️ Before launch (required for SEO + LinkedIn previews)
-- In `frontend/index.html`, `robots.txt`, and `sitemap.xml`, replace every `https://your-domain.com` with the real deployed URL. These power the canonical tag, Open Graph share image, Twitter card, JSON-LD Person schema, and sitemap.
-- `resume.pdf` (current PM résumé, sourced from `pm/harsh_resume.pdf`) is already in `frontend/` and wired to the hero "Résumé" button. Replace it when the résumé updates.
+## Deployment (current)
+- **Live on Vercel: https://portfolio-tau-ashen-94.vercel.app** — one deployment serves BOTH the static site and the FastAPI `/chat` backend (`GROQ_API_KEY` is set there). `BACKEND_URL` in `script.js` stays `""` so the chat calls same-origin `/chat`; if no backend responds it silently falls back to `fallbackAnswer()`.
+- Railway is no longer used. `Dockerfile`/`Procfile` remain for portability.
+- Canonical/OG/Twitter/JSON-LD/sitemap/robots all point at the Vercel URL. **If the domain changes, update those in `index.html`, `robots.txt`, `sitemap.xml`.**
+- ⚠️ **PULSE's hosted dashboard is down** (died with the Railway project). All three former "live dashboard" links now point at the GitHub repo. Restore the live URL once redeployed.
+- `resume.pdf` is the public PM résumé, wired to the hero "Résumé" button. **It is generated from `resume-source.html`** — edit that, then re-render with:
+  `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=resume.pdf resume-source.html`
+  Keep it to ONE page. It deliberately contains **no Skillcase internal numbers, bug specifics, in-review work, or colleague names** — only HighRadius/own-project metrics, which are public. Re-check that before republishing.
 - `voice-strategy-case-study.pdf` ("From Ignored Feature to Growth Engine" Next Leap deck) is in `frontend/`, linked from the Next Leap timeline entry via `.tl-doc`.
 - `og-image.png` (1200×630 share card) already exists in `frontend/` — keep it next to index.html.
 

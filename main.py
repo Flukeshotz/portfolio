@@ -98,7 +98,7 @@ Public sector. Optimised MySQL queries for employee data retrieval; built filter
 # PROJECTS (with links — share the link when relevant)
 
 ## PULSE — Autonomous Product Intelligence Pipeline (2026) ⭐ strongest project
-LIVE: https://pulse-production-b034.up.railway.app/
+Code: https://github.com/Flukeshotz/PULSE  (NOTE: the hosted dashboard is being redeployed — point people to the GitHub repo, never promise a live dashboard URL.)
 Code: https://github.com/Flukeshotz/PULSE
 Scrapes 8,000+ fintech app reviews weekly (Groww, INDmoney, Zerodha), clusters them with UMAP + HDBSCAN, and runs a 5-stage anti-hallucination layer (fuzzy matching) that proves every quote exists verbatim in the source before it ships. Delivers a prioritised weekly fix-list for PMs. Runs autonomously via GitHub Actions every Monday, costs $0 (free-tier APIs), and uses MCP to write reports to Google Docs + draft Gmail summaries. Stack: Python, SQLite, HDBSCAN, UMAP, RapidFuzz, Groq (Llama 3), Gemini embeddings, React, Vite, Tailwind, Recharts, GitHub Actions, Railway. Built during the Next Leap fellowship.
 

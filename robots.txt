@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://portfolio-tau-ashen-94.vercel.app/sitemap.xml

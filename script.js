@@ -249,13 +249,13 @@ function fallbackAnswer(q) {
   }
 
   if (s.includes('pulse'))
-    return "PULSE is Harsh's strongest project — a live, autonomous product-intelligence pipeline. It scrapes 8,000+ fintech app reviews weekly (Groww, INDmoney, Zerodha), clusters them with UMAP + HDBSCAN, and runs a 5-stage anti-hallucination layer that proves every quote exists verbatim in the source before it ships. Runs itself via GitHub Actions every Monday, costs $0. Live: pulse-production-b034.up.railway.app · Code: github.com/Flukeshotz/PULSE";
+    return "PULSE is Harsh's strongest project — a live, autonomous product-intelligence pipeline. It scrapes 8,000+ fintech app reviews weekly (Groww, INDmoney, Zerodha), clusters them with UMAP + HDBSCAN, and runs a 5-stage anti-hallucination layer that proves every quote exists verbatim in the source before it ships. Runs itself via GitHub Actions every Monday, costs $0. Code & docs: github.com/Flukeshotz/PULSE";
   if (s.includes('highradius') || (s.includes('intern') && !s.includes('cmpdi')))
     return "At HighRadius (enterprise FinTech SaaS), Harsh interned 6 months and didn't wait to be assigned product work. He found two gaps himself: manual call auditing covering <15% of calls (built Athena, an AI scoring system) and SDRs juggling 4–5 tabs on live calls (built a unified workspace). The workspace drove 27 net-new discovery calls and lifted MCR 15% above team floor.";
   if (s.includes('hire') || s.includes('why') || s.includes('fit') || s.includes('strength'))
     return "Four reasons: (1) He ships — PULSE, SIF Copilot, and Gourmet AI are all LIVE, not slideware. (2) He finds the real problem before building — at HighRadius he observed SDRs instead of assuming. (3) He designs trust into AI systems — human-in-the-loop and anti-hallucination by default. (4) Real validated outcomes: 27 discovery calls, MCR +15%, 50–70% effort cuts. A builder who thinks like a PM — rare at entry level.";
   if (s.includes('strongest') || s.includes('best project'))
-    return "PULSE — live, autonomous, and it solves a real PM pain point: it replaces hours of manually reading app reviews with a mathematically-grounded weekly fix-list. The 5-stage anti-hallucination layer (proving every quote is real) is what sets it apart from a generic ChatGPT summary. Live: pulse-production-b034.up.railway.app";
+    return "PULSE — live, autonomous, and it solves a real PM pain point: it replaces hours of manually reading app reviews with a mathematically-grounded weekly fix-list. The 5-stage anti-hallucination layer (proving every quote is real) is what sets it apart from a generic ChatGPT summary. Code & docs: github.com/Flukeshotz/PULSE";
   if (s.includes('sif'))
     return "SIF Copilot is a live, source-grounded RAG platform for India's Specialised Investment Funds — 30+ strategies across 10+ AMCs, thousands of SEBI/AMFI pages indexed. Core principle: in finance, confidently-wrong data is worse than missing data, so it cites every source. Live: sif-rag.vercel.app · Code: github.com/Flukeshotz/SIF_RAG";
   if (s.includes('gourmet'))

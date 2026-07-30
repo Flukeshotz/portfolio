@@ -71,7 +71,7 @@ Push to `main` on **Flukeshotz/portfolio** → Vercel auto-deploys. `GROQ_API_KE
 - ⚠️ **PULSE's hosted dashboard is down** (died with the Railway project). All three former "live dashboard" links now point at the GitHub repo. Restore the live URL once redeployed.
 - `resume.pdf` is the public PM résumé, wired to the hero "Résumé" button. **It is generated from `resume-source.html`** — edit that, then re-render with:
   `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=resume.pdf resume-source.html`
-  Keep it to ONE page. It deliberately contains **no Skillcase internal numbers, bug specifics, in-review work, or colleague names** — only HighRadius/own-project metrics, which are public. Re-check that before republishing.
+  Keep it to ONE page. It deliberately contains **no Skillcase internal numbers, bug specifics, in-review work, or colleague names** — only HighRadius/own-project metrics, which are public. It also deliberately **omits Harsh's phone number** (he asked for it out, since a public PDF gets scraped) — contact is email/LinkedIn/GitHub only. Re-check both before republishing.
 - `voice-strategy-case-study.pdf` ("From Ignored Feature to Growth Engine" Next Leap deck) is in `frontend/`, linked from the Next Leap timeline entry via `.tl-doc`.
 - `og-image.png` (1200×630 share card) already exists in `frontend/` — keep it next to index.html.
 

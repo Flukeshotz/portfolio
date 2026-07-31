@@ -249,7 +249,7 @@ function fallbackAnswer(q) {
   }
 
   if (s.includes('pulse'))
-    return "PULSE is Harsh's strongest project — a live, autonomous product-intelligence pipeline. It scrapes 8,000+ fintech app reviews weekly (Groww, INDmoney), clusters them with UMAP + HDBSCAN, and runs a 5-stage anti-hallucination layer that proves every quote exists verbatim in the source before it ships. Runs itself via GitHub Actions every Monday, costs $0. Live: pulse-murex-six.vercel.app · Code: github.com/Flukeshotz/PULSE";
+    return "PULSE is Harsh's strongest project — a live, autonomous product-intelligence pipeline. It scrapes 8,000+ fintech app reviews weekly across four apps (Groww, INDmoney, Zerodha Kite, Stable Money), clusters them with UMAP + HDBSCAN, and runs a 5-stage anti-hallucination layer that proves every quote exists verbatim in the source before it ships. It also has a 'Compare' view that ranks all four apps side by side, flags shared cross-app problem patterns, and surfaces which teams are under the most complaint pressure industry-wide. Runs itself via GitHub Actions every Monday, costs $0. Live: pulse-murex-six.vercel.app · Code: github.com/Flukeshotz/PULSE";
   if (s.includes('highradius') || (s.includes('intern') && !s.includes('cmpdi')))
     return "At HighRadius (enterprise FinTech SaaS), Harsh interned 6 months and didn't wait to be assigned product work. He found two gaps himself: manual call auditing covering <15% of calls (built Athena, an AI scoring system) and SDRs juggling 4–5 tabs on live calls (built a unified workspace). The workspace drove 27 net-new discovery calls and lifted MCR 15% above team floor.";
   if (s.includes('hire') || s.includes('why') || s.includes('fit') || s.includes('strength'))

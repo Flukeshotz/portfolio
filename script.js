@@ -267,7 +267,7 @@ function fallbackAnswer(q) {
   if (s.includes('code') || s.includes('technical') || s.includes('coding'))
     return "Harsh is product-led and AI-assisted. He owns the problem framing, system design, and the real decisions — why RAG over fine-tuning, why fuzzy-matching for quote validation, why a $0 architecture, why human-in-the-loop. He uses AI tooling to implement and ship fast. That's how live products like PULSE get built. His strength is product judgment and shipping, not writing code from scratch.";
   if (s.includes('education') || s.includes('study') || s.includes('college') || s.includes('degree') || s.includes('cgpa') || s.includes('srm'))
-    return "B.Tech in Computer Science Engineering (AI/ML specialisation) from SRM Institute of Science & Technology, Kattankulathur — graduated May 2026, CGPA 8.53/10. He's currently a Founder's Office Intern at Skillcase, and a Next Leap PM Fellow.";
+    return "B.Tech in Computer Science Engineering (AI/ML specialisation) from SRM Institute of Science & Technology, Kattankulathur — graduated May 2026, CGPA 8.53/10. He's currently a Founder's Office Intern at Skillcase, and completed the Next Leap PM Fellowship (Apr–Jul 2026).";
   if (s.includes('contact') || s.includes('email') || s.includes('reach') || s.includes('linkedin') || s.includes('github'))
     return "Reach Harsh at harshvsingh.work@gmail.com, LinkedIn (linkedin.com/in/harshv5111), or GitHub (github.com/Flukeshotz). He's open to PM, AI PM, and Product Analyst roles across India and remote — happy to discuss timelines directly.";
   if (s.includes('skillcase') || s.includes('founder') || s.includes('current') || s.includes('doing now'))

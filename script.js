@@ -77,6 +77,23 @@ const countIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.6 });
 countEls.forEach(el => countIO.observe(el));
 
+// ====== NAV: HIGHLIGHT CURRENT SECTION ======
+(function () {
+  const links = [...document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const secs = [...map.keys()].map(id => document.getElementById(id)).filter(Boolean);
+  if (!secs.length || !('IntersectionObserver' in window)) return;
+  const so = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.remove('active'));
+        map.get(e.target.id)?.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  secs.forEach(s => so.observe(s));
+})();
+
 // ====== MAGNETIC BUTTONS ======
 document.querySelectorAll('[data-magnetic]').forEach(btn => {
   btn.addEventListener('mousemove', e => {
@@ -271,7 +288,7 @@ function fallbackAnswer(q) {
   if (s.includes('contact') || s.includes('email') || s.includes('reach') || s.includes('linkedin') || s.includes('github'))
     return "Reach Harsh at harshvsingh.work@gmail.com, LinkedIn (linkedin.com/in/harshv5111), or GitHub (github.com/Flukeshotz). He's open to PM, AI PM, and Product Analyst roles across India and remote — happy to discuss timelines directly.";
   if (s.includes('skillcase') || s.includes('founder') || s.includes('current') || s.includes('doing now'))
-    return "Right now Harsh is a Founder's Office Intern at Skillcase (EdTech — language learning & careers), where he owns the app, GTM, and content. The standout: instead of producing course material by hand, he designed AI generation pipelines that run in production — covering instructional imagery, audio/video lessons, and structured assessment material, each expert-reviewed before shipping. He also runs user interviews, triages UX friction, wireframes new flows, and drives content and social growth. (Internal specifics I can't get into — ask him directly.)";
+    return "Right now Harsh is a Founder's Office Intern at Skillcase (EdTech — language learning & careers), where he owns the app, GTM, and content. The standout: instead of producing course material by hand, he designed AI generation pipelines that run in production — covering instructional imagery, audio/video lessons, and structured assessment material, each expert-reviewed before shipping. He also built an image-generation and design-system platform, led a visual-quality overhaul across the learning modules, took the beginner course through a full module-by-module QA pass, and ships learner-requested improvements from interviews to production. On growth he runs user feedback, content and social production, and partnership outreach. (Internal specifics I can't get into — ask him directly.)";
   if (s.includes('role') || s.includes('looking') || s.includes('available') || s.includes('start'))
     return "Harsh is currently in the Founder's Office at Skillcase, and he's open to Product Manager, AI PM, or Product Analyst opportunities — open to relocation (Bengaluru, Chennai, Gurgaon, PAN India) and remote. Best to reach him directly at harshvsingh.work@gmail.com to discuss timelines.";
   if (s.includes('skill') || s.includes('tech') || s.includes('stack'))

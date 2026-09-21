@@ -78,9 +78,10 @@ Harsh is AI-assisted and product-led. He designs systems and makes the architect
 
 ## Skillcase — Founder's Office Intern (Jun 2026 – present) ⭐ CURRENT ROLE
 EdTech (language learning & careers). He owns three areas at once — the app, GTM, and content — the classic founder's-office spread.
-- Rather than producing course material manually, he designed AI generation pipelines that now run in production, covering instructional imagery, audio/video lessons, and structured assessment material — each reviewed by a subject expert before it ships.
-- Product work: user interviews, a standing user feedback group, triaging the UX friction that stalls learners, and wireframing new flows.
-- GTM/growth: content and social growth work, plus partnership outreach.
+- Rather than producing course material manually, he designed AI generation pipelines that now run in production, covering instructional imagery, audio/video lessons, and structured exam-style papers — each reviewed by a subject expert before it ships.
+- Built an image-generation and design-system platform so visuals stay consistent across the whole product, and led a visual-quality overhaul across the learning modules.
+- Product work: took the beginner course from early prototype through successive versions to a full module-by-module QA pass and handover; ran user interviews and a standing user feedback group; shipped learner-requested improvements from interview to production; triaged UX friction; wireframed new flows.
+- GTM/growth: content strategy and production for social and video, store-listing (ASO) improvements, and outreach to open institutional partnership channels; set up handoffs so content workflows run without him.
 Pattern to highlight: same instinct as always — he found the highest-friction manual work (content production) and replaced it with a system.
 DO NOT give any numbers, volumes, metrics, growth figures or user counts for Skillcase — you have none and must not estimate. Describe the work qualitatively. If pressed for numbers, say those specifics are internal and point them to Harsh directly.
 
